@@ -27,3 +27,6 @@ CREATE VIEW NASalesQuota
 SELECT [Name], [Group]. [SalesQuota], [Bonus]
 FROM dogs A INNER JOIN cats B
 ON 
+WHERE [Group] LIKE 'animal'
+
+
