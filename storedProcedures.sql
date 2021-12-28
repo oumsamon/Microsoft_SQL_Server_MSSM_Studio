@@ -62,4 +62,13 @@ SELECT @outputresult
 
 DROP PROC
 
+--------returning Values from StorProc
+CREATE PROC myFirstReturningSP
+AS
+RETURN 12
+
+DECLARE @returnvalue INT
+EXEC @returnvalue = myFirstReturningSP
+SELECT @returnvalue
+
 
