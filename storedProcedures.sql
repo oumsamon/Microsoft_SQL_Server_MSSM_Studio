@@ -50,7 +50,7 @@ EXEC MyFirstParamProc
 EXEC MyFirstParamProc 'Day'
 
 
----OutPut Parameters----------
+---------OutPut Parameters----------
 CREATE PROC MyOutputSP
 @TopShift VARCHAR(50) OutPut
 AS
