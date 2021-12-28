@@ -28,3 +28,38 @@ DROP PROC MyTestProc
 ---ParamaProc
 CREATE PROCEDURE MyFirstParamProc
 @Param_Name VARCHAR(50)
+AS
+SET NOCOUNT ON
+SELECT * FROM tableName
+WHERE Name = @Param_Name
+
+EXEC MyFirstParamProc @Param_Name = 'Day'
+EXEC MyFirstParamProc = 'Day'
+---order is important if there many param in StorProc
+
+---setting a default param.
+CREATE PROCEDURE MyFirstParamProc
+@Param_Name VARCHAR(50) = 'Evening'
+AS
+SET NOCOUNT ON
+SELECT * FROM tableName
+WHERE Name = @Param_Name
+
+EXEC MyFirstParamProc 
+---will give you evening data.
+EXEC MyFirstParamProc 'Day'
+
+
+---OutPut Parameters----------
+CREATE PROC MyOutputSP
+@TopShift VARCHAR(50) OutPut
+AS
+SET @TopShift = (SELECT TOP (1) ShiftID FROM tableName)
+
+DECLARE @outputresult VARCHAR(50)
+EXEC MyOutputSP @outputresult outputresult
+SELECT @outputresult
+
+DROP PROC
+
+
